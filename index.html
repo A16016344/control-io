@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Entrada / Salida</title>
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Himnario Presbiteriano">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="red">
+</head>
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="navbar-brand mb-0 h1">Entrada / Salida</div>
+        </nav>
+    </header>
+    <main class="container">
+        <form id="formulario">
+            <div class="form-group">
+                <label for="name">Nombre: <a class="badge badge-warning" id="setName">Cambiar nombre</a>*</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <input class="form-control" type="text" id="name" placeholder="Sin nombre" disabled>    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="turno">Turno: </label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="turno" id="turno1" value="TM" checked>
+                    <label class="form-check-label" for="turno1">Mañana</label>                    
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="turno" id="turno2" value="TT">
+                    <label class="form-check-label" for="turno2">Tarde</label>                    
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="turno" id="turno3" value="TN">
+                <label class="form-check-label" for="turno3">Noche</label>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="entrada">Entrada: </label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input class="form-control" type="number" id="entrada" placeholder="000">    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salida">Salida: </label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input class="form-control" type="number" id="salida" placeholder="000">    
+                </div>
+            </div>
+            <div class="form-group" id="consumoField">
+                <label for="consumo">Consumo: <a class="badge badge-warning" onclick="otroTicket()">Agregar ticket</a>**</label>
+            </div>
+            <label for="VS">Venta Sugerida: </label>
+            <div class="row">
+                <div class="col form-group">
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">GEN</div>
+                        </div>
+                        <input class="form-control" type="number" id="gen" placeholder="00">    
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">TAE</div>
+                        </div>
+                        <input class="form-control" type="number" id="tae" placeholder="00">    
+                    </div>
+                </div>
+              </div>
+              <div class="form-group" id="conteoField">
+                <label for="Conteo">Conteos: <a class="badge badge-warning" onclick="otroConteo()">Agregar selectivo</a>**</label>
+              </div>
+            <input type="submit" value="Enviar al Whats" class="btn btn-primary btn-block">
+        </form>
+        <small class="form-text text-muted">* El nombre que elijas se guardará unicamente en tu dispositivo.</small>
+        <small class="form-text text-muted">** Agrega primero los campos antes de rellenarlos, si no al agregar un nuevo campo los anteriores se limpiaran.</small>
+        <small class="form-text text-muted">Este sitio web no ocupa cookies, ni propias ni de terceros, unicamente se utiliza la propeiedad localStorage para almacenar información recurrente y no envia ningún dato a ningún servidor externo.</small>
+
+    </main>
+    <script src="main.js"></script>
+    <script src="service-worker.js"></script>
+</body>
+</html>
